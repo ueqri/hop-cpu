@@ -39,19 +39,42 @@ For more tutorial about how to write or run tests, please refer to [ucb-bar/chis
 
 ## Simulation and Visualization
 
-TODO: organize the document
+### Behavior Simulation
+
+To run behavior simulation with Vivado tool (our main approach), please refer to `sim/vivado` directory.
+
+If you want to try much light verilator simulation, see `sim/verilator` for all environment needed (probably has flaws in sim results).
+
+### Pipeline Visualization
+
+We novelly uses O3 Pipeline Viewer (a powerful tool in gem5 ecosystem) to view inst pipeline from the dumped simulation log. It helps us distinguish the performance issues when constructing the CPU, and work as a lifesaver for debugging!
+
+One of our vis results as below - it is helpful and fancy!
+
+[pic]
 
 ## Design Details
 
-TODO: organize the document
+In our submitted version, we finally covers MIPS32 (based on Release 1, [57 insts in total](https://github.com/ueqri/hop-cpu/tree/main/src/main/scala/Instructions.scala)) ISA, achieves 100 MHz with Vivado 2021.2, and passes all function tests (both mandatory and advanced). There is some steps we haven't finished because of the limited time, and also some interesting ideas, see [Follow-ups](#follow-ups).
+
+Please refer to [doc/README.md](https://github.com/ueqri/hop-cpu/tree/main/doc) for the architecture, and [doc/lesson-story.md](https://github.com/ueqri/hop-cpu/tree/main/doc/lesson-story.md) for the lessons we learned and interesting stories during the exploration and development.
 
 ## Acknowledgements
 
-This project is a team work collaborated with @Jomit626, @Kepontry, and @nothatDinger.
+This project is a team work collaborated with @Jomit626, @Kepontry, and @nothatDinger, within 3 months.
 
 If you are interested in this project (e.g., wanting a discussion on the technical details, preparing for the Computer Organization course project, or just desiring to build a geek CPU core for fun), please feel free to drop me an email to start a chat.
 
 If you plan to attend the *Loongson Cup Student CPU Design Competition* and you're a HUST undergrad, please contact Prof. [Zhihu Tan](http://faculty.hust.edu.cn/tanzhihu/en/index.htm) for more information.
+
+## Follow-ups
+
+[ ] Organize the documents & tutorials as a project for educational purpose for HUST new CSer
+[ ] Fix bug of AXI controller to replace the current SRAM design
+[ ] Extend issue windows to support 2 (or above) inst issues
+[ ] Implement caches for better performance, and TLB MMU for OS support
+[ ] Optimize retire stage (still a lot of room) and branch predictor
+[ ] Run RTOS (first step) and Linux (next step)
 
 ## Reference
 
