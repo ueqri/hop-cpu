@@ -5,6 +5,7 @@ import chisel3.util.DecoupledIO
 import chisel3.util.PriorityEncoderOH
 import chisel3.util.PopCount
 
+// BitAlloctor allocates and frees a parameterized number of indexes dynamically.
 class BitAlloctor(n: Int) extends Module {
 
   require(n > 0)

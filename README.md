@@ -2,12 +2,11 @@
 
 ![hop-cpu](./doc/hop-cpu.svg)
 
-## Features
+## Highlights
 
-- Adopted modern CPU designs from [BOOM](https://github.com/riscv-boom/riscv-boom) and [RSD](https://github.com/rsd-devel/rsd), and re-implemented some of their features in Chisel (e.g., [Dependencies Matrix for Renaming](https://docs.boom-core.org/en/latest/sections/rename-stage.html), [Multi-Port RAMs](https://tomverbeure.github.io/2019/08/03/Multiport-Memories.html))
-- Exploited Chisel features & [Rocket Chip](https://github.com/chipsalliance/rocket-chip) styles to agilely develop CPU
-- Implemented abstractions with Chisel to easily configure hyperparameter and upgrade modules (like caches)
-- Used [Gem5 O3PipeView](https://www.gem5.org/documentation/general_docs/cpu_models/visualization/) and [Konata](https://github.com/shioyadan/Konata) to visualize pipeline operations during simulation
+- Implemented a highly modularized out-of-order execution CPU with modern scheduling technology learning from [UCB-BOOM](https://github.com/riscv-boom/riscv-boom) and [RSD](https://github.com/rsd-devel/rsd)
+- Exploited Chisel3 features and followed [Rocket Chip](https://github.com/chipsalliance/rocket-chip) designing styles to agilely develop CPU
+- Adopted [gem5 O3PipeView](https://www.gem5.org/documentation/general_docs/cpu_models/visualization/) and [Konata](https://github.com/shioyadan/Konata) to visualize pipeline operations for rapidly prototyping and debugging
 
 ## Build and Run
 
@@ -49,13 +48,13 @@ If you want to try much light verilator simulation, see `sim/verilator` for all 
 
 We novelly uses O3 Pipeline Viewer (a powerful tool in gem5 ecosystem) to view inst pipeline from the dumped simulation log. It helps us distinguish the performance issues when constructing the CPU, and work as a lifesaver for debugging!
 
-One of our vis results as below - it is helpful and fancy!
+One of our vis results here - it is helpful and fancy!
 
-[pic]
+For the usage and workflow, please refer to [sim/toO3PipeView.py](sim/toO3PipeView.py).
 
 ## Design Details
 
-In our submitted version, we finally covers MIPS32 (based on Release 1, [57 insts in total](https://github.com/ueqri/hop-cpu/tree/main/src/main/scala/Instructions.scala)) ISA, achieves 100 MHz with Vivado 2021.2, and passes all function tests (both mandatory and advanced). There is some steps we haven't finished because of the limited time, and also some interesting ideas, see [Follow-ups](#follow-ups).
+In our submitted version, we finally covers MIPS32 (based on Release 1, [57 insts in total](https://github.com/ueqri/hop-cpu/tree/main/src/main/scala/Instructions.scala)) ISA, achieves up to 100 MHz with Vivado 2021.2, and passes all function tests (both mandatory and advanced). There is some steps we haven't finished because of the limited time, and also some interesting ideas, see [Follow-ups](#follow-ups).
 
 Please refer to [doc/README.md](https://github.com/ueqri/hop-cpu/tree/main/doc) for the architecture, and [doc/lesson-story.md](https://github.com/ueqri/hop-cpu/tree/main/doc/lesson-story.md) for the lessons we learned and interesting stories during the exploration and development.
 
@@ -70,12 +69,23 @@ If you plan to attend the *Loongson Cup Student CPU Design Competition* and you'
 ## Follow-ups
 
 [ ] Organize the documents & tutorials as a project for educational purpose for HUST new CSer
+
 [ ] Fix bug of AXI controller to replace the current SRAM design
+
 [ ] Extend issue windows to support 2 (or above) inst issues
+
 [ ] Implement caches for better performance, and TLB MMU for OS support
+
 [ ] Optimize retire stage (still a lot of room) and branch predictor
+
 [ ] Run RTOS (first step) and Linux (next step)
 
 ## Reference
 
 [Getting Started with Chisel (CS 250, UCB)](https://inst.eecs.berkeley.edu/~cs250/sp16/handouts/chisel-getting-started.pdf)
+
+[UCB‑BAR: Berkeley Out‑of‑Order Machine](https://bar.eecs.berkeley.edu/projects/boom.html)
+
+[Davis In-Order (DINO) CPU models using Chisel](https://github.com/jlpteaching/dinocpu)
+
+[An Open Source FPGA-Optimized Out-of-Order RISC-V Soft Processor (FPT'19)](https://doi.org/10.1109/ICFPT47387.2019.00016)
