@@ -8,6 +8,12 @@
 - Exploited Chisel3 features and followed [Rocket Chip](https://github.com/chipsalliance/rocket-chip) designing styles to agilely develop CPU
 - Adopted [gem5 O3PipeView](https://www.gem5.org/documentation/general_docs/cpu_models/visualization/) and [Konata](https://github.com/shioyadan/Konata) to visualize pipeline operations for rapidly prototyping and debugging
 
+## Design Details
+
+Please refer to [doc/README.md](https://github.com/ueqri/hop-cpu/tree/main/doc) for the details of our architecture design.
+
+In our submitted version, we finally covers MIPS32 (based on Release 1, [57 insts in total](https://github.com/ueqri/hop-cpu/tree/main/src/main/scala/Instructions.scala)) ISA, achieves up to 99 MHz with Vivado 2021.2, and passes all function tests (both mandatory and advanced). There is some steps we haven't finished because of the limited time, and also some interesting ideas, see [Follow-ups](#follow-ups).
+
 ## Build and Run
 
 ### Prerequisite
@@ -52,12 +58,6 @@ One of our vis results here - it is helpful and fancy!
 
 For the usage and workflow, please refer to [sim/toO3PipeView.py](sim/toO3PipeView.py).
 
-## Design Details
-
-In our submitted version, we finally covers MIPS32 (based on Release 1, [57 insts in total](https://github.com/ueqri/hop-cpu/tree/main/src/main/scala/Instructions.scala)) ISA, achieves up to 100 MHz with Vivado 2021.2, and passes all function tests (both mandatory and advanced). There is some steps we haven't finished because of the limited time, and also some interesting ideas, see [Follow-ups](#follow-ups).
-
-Please refer to [doc/README.md](https://github.com/ueqri/hop-cpu/tree/main/doc) for the architecture, and [doc/lesson-story.md](https://github.com/ueqri/hop-cpu/tree/main/doc/lesson-story.md) for the lessons we learned and interesting stories during the exploration and development.
-
 ## Acknowledgements
 
 This project is a team work collaborated with @Jomit626, @Kepontry, and @nothatDinger, within 3 months.
@@ -68,17 +68,17 @@ If you plan to attend the *Loongson Cup Student CPU Design Competition* and you'
 
 ## Follow-ups
 
-[ ] Organize the documents & tutorials as a project for educational purpose for HUST new CSer
+- [ ] Organize the documents & tutorials as a project for educational purpose for HUST new CSer
 
-[ ] Fix bug of AXI controller to replace the current SRAM design
+- [ ] Fix bug of AXI controller to replace the current SRAM design
 
-[ ] Extend issue windows to support 2 (or above) inst issues
+- [ ] Extend issue windows to support 2 (or above) inst issues
 
-[ ] Implement caches for better performance, and TLB MMU for OS support
+- [ ] Implement caches for better performance, and TLB MMU for OS support
 
-[ ] Optimize retire stage (still a lot of room) and branch predictor
+- [ ] Optimize retire stage (still a lot of room) and branch predictor
 
-[ ] Run RTOS (first step) and Linux (next step)
+- [ ] Run RTOS (first step) and Linux (next step)
 
 ## Reference
 
