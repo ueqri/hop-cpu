@@ -56,6 +56,8 @@ We novelly uses O3 Pipeline Viewer (a powerful tool in gem5 ecosystem) to view i
 
 One of our vis results here - it is helpful and fancy!
 
+<details><summary>Snapshot of Pipeline Visualization</summary><img width="963" alt="o3pipeview" src="https://user-images.githubusercontent.com/56567688/211126703-7d87be79-61f5-46b0-a4c0-507b97798ae1.png"></details>
+
 For the usage and workflow, please refer to [sim/toO3PipeView.py](sim/toO3PipeView.py).
 
 ## Acknowledgements
